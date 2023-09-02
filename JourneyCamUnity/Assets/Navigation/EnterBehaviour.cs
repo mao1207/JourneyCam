@@ -107,7 +107,7 @@ public class EnterBehaviour : MonoBehaviour
                 practiceTitleText.text = "构图练习";
                 practiceDescriptionText.text = "用对角线构图法给房间拍张照（小知识：对角线构图能增强房间的空间感）";
                 DescriptionText.text = "请通过使用<b><color=#A076F9>对角线构图</color></b>拍摄出房间的空间感";
-                //hintBehaviour.targetRotation = new Quaternion(0.096f, 0.526f, -0.036f, 0.844f);
+                hintBehaviour.targetRotation = new Quaternion(0.157f, -0.367f, 0.046f, 0.915f);
                 hintBehaviour.targetParameter = ParameterType.None;
                 break;
         }

@@ -47,6 +47,7 @@ struct PracticeView: View {
                                     "SavedType",
                                     methodName: "InitializePractice",
                                     message: "SceneDepth")
+                                viewModel.practiceModel.practiceType = "SceneDepth"
                             }
                         )
                         .padding(.bottom, 20)
@@ -81,6 +82,7 @@ struct PracticeView: View {
                                     "SavedType",
                                     methodName: "InitializePractice",
                                     message: "Exposure")
+                                viewModel.practiceModel.practiceType = "Exposure"
                             }
                         )
                         .padding(.bottom, 20)
@@ -112,6 +114,7 @@ struct PracticeView: View {
                                     "SavedType",
                                     methodName: "InitializePractice",
                                     message: "Design")
+                                viewModel.practiceModel.practiceType = "Design"
                             }
                         )
                         .padding(.bottom, 20)

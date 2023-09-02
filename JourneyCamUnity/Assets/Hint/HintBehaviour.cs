@@ -73,6 +73,13 @@ public class HintBehaviour : MonoBehaviour
 
     public MotionBlur motionBlur;
 
+    private void Awake()
+    {
+        VolumeProfile.TryGet(out whiteBalance);
+        VolumeProfile.TryGet(out colorAdjustments);
+        VolumeProfile.TryGet(out motionBlur);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,7 +96,7 @@ public class HintBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(PhysicalCamera.transform.rotation);
+        Debug.Log(PhysicalCamera.transform.rotation);
 
         periodTime += Time.deltaTime;
         totalTime += Time.deltaTime;
@@ -104,8 +111,10 @@ public class HintBehaviour : MonoBehaviour
                 currentParameterValue = PhysicalCamera.focalLength;
                 break;
             case ParameterType.WhiteBalance:
+                currentParameterValue = ParameterAdjustingBehaviour.whiteBalances[ParameterAdjustingBehaviour.getIndex(whiteBalance.temperature.value, ParameterAdjustingBehaviour.whiteBalanceRealValues)];
                 break;
             case ParameterType.ShutterSpeed:
+                currentParameterValue = ParameterAdjustingBehaviour.speedValues[ParameterAdjustingBehaviour.getIndex(motionBlur.intensity.value, ParameterAdjustingBehaviour.realSpeedValues)];
                 break;
         }
 

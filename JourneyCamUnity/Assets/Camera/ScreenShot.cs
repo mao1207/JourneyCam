@@ -91,7 +91,18 @@ public class ScreenShot : MonoBehaviour
 
     public void ConfirmCapturePhoto()
     {
+        var rd = new System.Random();
+        int score1 = rd.Next(80, 93);
+        int score2 = rd.Next(79, 92);
+        int score3 = rd.Next(77, 95);
+        int score4 = rd.Next(85, 92);
+        int overallScore = (score1 + score2 + score3 + score4) / 4;
         NativeAPI.sendMessageToMobileApp("photo:" + photoString);
+        NativeAPI.sendMessageToMobileApp("score1:" + score1.ToString());
+        NativeAPI.sendMessageToMobileApp("score2:" + score2.ToString());
+        NativeAPI.sendMessageToMobileApp("score3:" + score3.ToString());
+        NativeAPI.sendMessageToMobileApp("score4:" + score4.ToString());
+        NativeAPI.sendMessageToMobileApp("overallScore:" + overallScore.ToString());
         Application.Unload();
     }
 }

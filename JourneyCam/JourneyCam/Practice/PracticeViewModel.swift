@@ -10,7 +10,7 @@ import UnityFramework
 
 class PracticeViewModel: NSObject, ObservableObject, NativeCallsProtocol {
     
-    @Published private var practiceModel = PracticeModel();
+    @Published public var practiceModel = PracticeModel();
     
     override init() {
         super.init()
@@ -38,7 +38,19 @@ class PracticeViewModel: NSObject, ObservableObject, NativeCallsProtocol {
             }
         }
         case "overallScore": do {
-            
+            practiceModel.overallScore = Int(tuple.1) ?? nil
+        }
+        case "score1": do {
+            practiceModel.Score1 = Int(tuple.1) ?? nil
+        }
+        case "score2": do {
+            practiceModel.Score2 = Int(tuple.1) ?? nil
+        }
+        case "score3": do {
+            practiceModel.Score3 = Int(tuple.1) ?? nil
+        }
+        case "score4": do {
+            practiceModel.Score4 = Int(tuple.1) ?? nil
         }
         default: do {
             
@@ -73,5 +85,18 @@ class PracticeViewModel: NSObject, ObservableObject, NativeCallsProtocol {
         let type = message[message.startIndex..<firstIndex!]
         let content = message[message.index(firstIndex!, offsetBy: 1)..<message.endIndex]
         return (String(type), String(content))
+    }
+    
+    func getCourageString() -> String
+    {
+        if practiceModel.practiceType == "SceneDepth" {
+            return "做得太棒了！威廉骑士终于得到了他想要的照片，但他觉得如果镜头再向下转一点就好了"
+        } else if practiceModel.practiceType == "Exposure" {
+            return "做得太棒了！你拍出了独一无二的宇宙中的地球，但如果再提高一下白平衡就更好了"
+        } else if practiceModel.practiceType == "Design" {
+            return "做得太棒了！你成功使用对角线构图法拍出了房间的空间感"
+        } else {
+            return ""
+        }
     }
 }
