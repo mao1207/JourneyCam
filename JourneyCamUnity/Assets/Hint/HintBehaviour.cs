@@ -96,8 +96,6 @@ public class HintBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PhysicalCamera.transform.rotation);
-
         periodTime += Time.deltaTime;
         totalTime += Time.deltaTime;
 
