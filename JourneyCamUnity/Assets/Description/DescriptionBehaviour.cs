@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class DescriptionBehaviour : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class DescriptionBehaviour : MonoBehaviour
 
     public void InitializeDescription(string description)
     {
-        var descriptionText = DescriptionPanel.transform.Find("DescriptionText").GetComponent<TextMeshProUGUI>();
+        var descriptionText = DescriptionPanel.transform.Find("DescriptionText").GetComponent<Text>();
         descriptionText.text = description;
     }
 

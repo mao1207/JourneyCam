@@ -37,6 +37,9 @@ class PracticeViewModel: NSObject, ObservableObject, NativeCallsProtocol {
                 practiceModel.practiceViewNavigation = .Overview
             }
         }
+        case "overallScore": do {
+            
+        }
         default: do {
             
         }

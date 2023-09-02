@@ -11,7 +11,7 @@ struct PracticeKnowledgeView: View {
     @EnvironmentObject var practiceViewModel: PracticeViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Course()
     }
 }
 

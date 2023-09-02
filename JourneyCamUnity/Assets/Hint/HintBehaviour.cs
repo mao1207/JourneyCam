@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class HintBehaviour : MonoBehaviour
 {
@@ -28,6 +30,12 @@ public class HintBehaviour : MonoBehaviour
     public GameObject ParameterAdjusting;
 
     public GameObject FocalLengthActivated;
+
+    public GameObject ISOActivated;
+
+    public GameObject WhiteBalanceActivated;
+
+    public GameObject SpeedActivated;
 
     public GameObject SmallerHint;
 
@@ -57,6 +65,14 @@ public class HintBehaviour : MonoBehaviour
 
     public GameObject DescriptionPanel;
 
+    public VolumeProfile VolumeProfile;
+
+    public WhiteBalance whiteBalance;
+
+    public ColorAdjustments colorAdjustments;
+
+    public MotionBlur motionBlur;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +98,7 @@ public class HintBehaviour : MonoBehaviour
         switch (targetParameter)
         {
             case ParameterType.ISO:
+                currentParameterValue = ParameterAdjustingBehaviour.isoValues[ParameterAdjustingBehaviour.getIndex(colorAdjustments.postExposure.value, ParameterAdjustingBehaviour.isoRealValues)];
                 break;
             case ParameterType.FocalLength:
                 currentParameterValue = PhysicalCamera.focalLength;
@@ -211,13 +228,16 @@ public class HintBehaviour : MonoBehaviour
                             switch (targetParameter)
                             {
                                 case ParameterType.ISO:
+                                    ISOActivated.GetComponent<Animation>().Play();
                                     break;
                                 case ParameterType.FocalLength:
                                     FocalLengthActivated.GetComponent<Animation>().Play();
                                     break;
                                 case ParameterType.WhiteBalance:
+                                    WhiteBalanceActivated.GetComponent<Animation>().Play();
                                     break;
                                 case ParameterType.ShutterSpeed:
+                                    SpeedActivated.GetComponent<Animation>().Play();
                                     break;
                             }
                         }

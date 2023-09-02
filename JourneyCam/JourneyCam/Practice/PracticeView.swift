@@ -18,52 +18,13 @@ struct PracticeView: View {
                 ScrollView(.vertical) {
                     VStack {
                         PracticeCardView(
-                            coverImage: "scene_class_cover",
-                            pannelContent: {
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        ThreeWordPracticeKnowledgeButton(text: "大远景") {
-                                            
-                                        }
-                                        TwoWordPracticeKnowledgeButton(text: "远景") {
-                                            
-                                        }
-                                        TwoWordPracticeKnowledgeButton(text: "中景") {
-                                            
-                                        }
-                                        TwoWordPracticeKnowledgeButton(text: "近景") {
-                                            
-                                        }
-                                    }
-                                    HStack {
-                                        ThreeWordPracticeKnowledgeButton(text: "中近景") {
-                                            
-                                        }
-                                        TwoWordPracticeKnowledgeButton(text: "全景") {
-                                            
-                                        }
-                                        TwoWordPracticeKnowledgeButton(text: "特写") {
-                                            
-                                        }
-                                        ThreeWordPracticeKnowledgeButton(text: "大特写") {
-                                            
-                                        }
-                                    }
-                                }
-                            },
-                            buttonAction: {
-                                
-                            }
-                        )
-                        .padding(.bottom, 20)
-                        PracticeCardView(
                             coverImage: "scene_depth_cover",
                             pannelContent: {
                                 VStack(alignment: .leading) {
                                     HStack {
-                                        FiveWordPracticeKnowledgeButton(text: "景深的概念") {
+                                        FiveWordPracticeKnowledgeButton(text: "中景的概念") {
                                             withAnimation {
-                                                viewModel.setNavigation(navigation: .Result)
+                                                viewModel.setNavigation(navigation: .Knowledge)
                                             }
                                         }
                                         FiveWordPracticeKnowledgeButton(text: "景深的作用") {
@@ -83,9 +44,74 @@ struct PracticeView: View {
                             buttonAction: {
                                 Unity.shared.show()
                                 Unity.shared.sendMessage(
-                                    "Canvas",
+                                    "SavedType",
                                     methodName: "InitializePractice",
                                     message: "SceneDepth")
+                            }
+                        )
+                        .padding(.bottom, 20)
+                        PracticeCardView(
+                            coverImage: "scene_class_cover",
+                            pannelContent: {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        ThreeWordPracticeKnowledgeButton(text: "曝光量") {
+                                            
+                                        }
+                                        ThreeWordPracticeKnowledgeButton(text: "感光度") {
+                                            
+                                        }
+                                    }
+                                    HStack {
+                                        ThreeWordPracticeKnowledgeButton(text: "低曝光") {
+                                            
+                                        }
+                                        ThreeWordPracticeKnowledgeButton(text: "中曝光") {
+                                            
+                                        }
+                                        ThreeWordPracticeKnowledgeButton(text: "高曝光") {
+                                            
+                                        }
+                                    }
+                                }
+                            },
+                            buttonAction: {
+                                Unity.shared.show()
+                                Unity.shared.sendMessage(
+                                    "SavedType",
+                                    methodName: "InitializePractice",
+                                    message: "Exposure")
+                            }
+                        )
+                        .padding(.bottom, 20)
+                        PracticeCardView(
+                            coverImage: "design_practice_cover",
+                            pannelContent: {
+                                VStack(alignment: .leading) {
+                                    HStack {
+                                        SevenWordPracticeKnowledgeButton(text: "构图法的重要性") {
+                                            
+                                        }
+                                        FiveWordPracticeKnowledgeButton(text: "对角线构图") {
+                                            
+                                        }
+                                    }
+                                    HStack {
+                                        FiveWordPracticeKnowledgeButton(text: "对称式构图") {
+
+                                        }
+                                        FiveWordPracticeKnowledgeButton(text: "九宫格构图") {
+
+                                        }
+                                    }
+                                }
+                            },
+                            buttonAction: {
+                                Unity.shared.show()
+                                Unity.shared.sendMessage(
+                                    "SavedType",
+                                    methodName: "InitializePractice",
+                                    message: "Design")
                             }
                         )
                         .padding(.bottom, 20)

@@ -33,7 +33,7 @@ public class ParameterChoosingBehaviour : MonoBehaviour
 
     public void OnLightButtonClick()
     {
-        OnParameterButtonClick(ParameterType.Aperture);
+        OnParameterButtonClick(ParameterType.WhiteBalance);
     }
 
     public void OnSpeedButtonClick()

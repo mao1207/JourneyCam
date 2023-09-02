@@ -11,7 +11,7 @@ struct CameraView: View {
     var body: some View {
         ZStack {
             JourneyCamBg()
-            Text("Camera")
+            Text("即将推出")
         }
         .ignoresSafeArea()
     }
